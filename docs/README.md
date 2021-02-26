@@ -3,8 +3,6 @@ Have you ever wondered how to do something in smartlist? Have any questions? Her
 
 Quick links: 
 
-Home: https://smartlist.ga 
-
-Dashboard: https://smartlist.ga/dashboard/beta
-
-Forum: https://community.smartlist.ga
+* Home: https://smartlist.ga 
+* Dashboard: https://smartlist.ga/dashboard/beta
+* Forum: https://community.smartlist.ga
