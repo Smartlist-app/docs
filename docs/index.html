@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./src/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.onerror = function(msg, url, linenumber) {
+        alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+        return true;
+      }
+      var docjs = {
+        directory: 'https://raw.githubusercontent.com/ManuTheCoder/docjs/main/docs/',
+        lightTheme: true,
+        element: 'app',
+        title: 'DocJS',
+        logo: 'https://img.icons8.com/color/2x/documents.png',
+        bottom_nav: true,
+        navbar: true,
+        repo: 'https://github.com/manuthecoder/docjs',
+        //copyToClipboard: true
+        hideTitle: true
+      }
+    </script>
+    <script src="./src/markdown.js"></script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
