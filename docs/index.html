@@ -3,6 +3,8 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ManuTheCoder/docjs/docs/src/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
@@ -12,20 +14,22 @@
         alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
         return true;
       }
-      var docjs = {
+      const docjs = {
         directory: 'https://raw.githubusercontent.com/Smartlist-app/docs/main/docs/',
         lightTheme: true,
         element: 'app',
-        title: 'Smartlist Docs',
-        logo: 'https://i.ibb.co/FDqN0Vh/Screenshot-2021-02-02-at-7-55-08-AM-2.png',
+        title: 'Smartlist',
+        logo: 'https://img.icons8.com/color/2x/documents.png',
         bottom_nav: true,
         navbar: true,
-        repo: 'https://github.com/Smartlist-app/docs',
-        //copyToClipboard: true
+        repo: 'https://github.com/manuthecoder/docjs',
         hideTitle: true
       }
+      cssVars({
+      // Options...
+    });
     </script>
     <script src="https://cdn.jsdelivr.net/gh/ManuTheCoder/docjs/docs/src/markdown.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ManuTheCoder/docjs/docs/src/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ManuTheCoder/docjs/docs/src/script.js"></script>
   </body>
 </html>
