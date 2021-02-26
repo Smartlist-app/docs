@@ -33,7 +33,7 @@ window.onload = function() {
                     if (this.id !== 'DOCJS_LINK_1' && document.getElementById('DOCJS_LINK_' + PREV_PAGE)) {
                         HTML_PAGE_PREV = document.getElementById('DOCJS_LINK_' + PREV_PAGE).innerHTML;
                     }
-                    if(document.getElementById('DOCJS_LINK_' + NEXT_PAGE)){
+                    if(document.body.contains(document.getElementById('DOCJS_LINK_' + NEXT_PAGE))){
                     HTML_PAGE_NEXT = document.getElementById('DOCJS_LINK_' + NEXT_PAGE).innerHTML;}
                     DOCJS_OPENPAGE(this.innerHTML);
                     toggle(this)
