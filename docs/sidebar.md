@@ -1,4 +1,5 @@
 * [Home](#)
+* [Getting Started](#)
 * Developer
-  * [Getting Started](#)
+  * [Intro](#)
 * [Credits](#)
