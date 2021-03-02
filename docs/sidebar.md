@@ -11,4 +11,5 @@
   * [Popup alert errors](#)
 * Other
   * [Privacy Policy](#)
+  * [Terms and Conditions](#)
 * [Credits](#)
