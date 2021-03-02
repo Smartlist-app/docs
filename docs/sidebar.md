@@ -6,4 +6,7 @@
   * [Intro](#)
 * Common Errors
   * [No data in budget meter to display](#)
+  * [404 error](#)
+  * [500 error](#)
+  * [Popup alert errors](#)
 * [Credits](#)
