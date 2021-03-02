@@ -5,5 +5,5 @@
 * Developer
   * [Intro](#)
 * Common Errors
-* [No data in budget meter to display](#)
+  * [No data in budget meter to display](#)
 * [Credits](#)
