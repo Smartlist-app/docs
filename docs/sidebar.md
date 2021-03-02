@@ -10,4 +10,5 @@
   * [500 error](#)
   * [Popup alert errors](#)
 * Other
+  * [Privacy Policy](#)
 * [Credits](#)
