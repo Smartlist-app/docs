@@ -9,4 +9,5 @@
   * [404 error](#)
   * [500 error](#)
   * [Popup alert errors](#)
+* Other
 * [Credits](#)
