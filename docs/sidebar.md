@@ -9,6 +9,7 @@
 * [Common Errors](#)
   * [No data in budget meter to display](#)
   * [Where did the add button go](#)
+  * [No notifications](#)
   * [404 error](#)
   * [500 error](#)
   * [Popup alert errors](#)
