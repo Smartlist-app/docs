@@ -224,6 +224,9 @@ function dark_sidenav() {
 
 }
 function OPEN_SEARCH() {
+  if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  CLOSE_MENU();
+  }
   document.getElementById('search_popup').innerHTML = '<div class="DOCJS_SEARCH_OVERLAY" onclick="CLOSE_SEARCH()"></div><div class="DOCJS_SEARCH_POPUP" id="DOCJS_SEARCH_POPUP"></div>';
   document.getElementById('DOCJS_SEARCH_POPUP').innerHTML = '<input id="docjs_search_popup_input" autocomplete="off" onkeyup="filter_list()" placeholder="Type to start searching..."> <ul class="docjs_search_results" id="docjs_search_results_filter_list"><div id="res"></div></ul>';
   document.getElementById('docjs_search_popup_input').focus();
