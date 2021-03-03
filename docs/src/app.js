@@ -1,3 +1,4 @@
+var docjs_searchitems = [];
   window.onload = function() {
       var htmlmode, page_title, page_content, NEXT_PAGE, PREV_PAGE, HTML_PAGE_NEXT, HTML_PAGE_PREV, data, FILENAME, defPage;
       document.title = docjs.title;
@@ -13,7 +14,7 @@
       xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
               document.getElementById(docjs.element).innerHTML =
-                  "<div id=\"DOCJS_LOADER\" class=\"linear-activity\"> <div class=\"indeterminate\"></div> </div><div id=\"DOCJS_MOBILE_TRIGGER\" onclick=\"SHOW_MENU()\" style=\"position:fixed;top:0;left:0;cursor:pointer;z-index: 9;display:block\"><i class=\"material-icons\">menu</i></div><div id='DOCJS_SIDEBAR' class='sidebar'><img src='" + docjs.logo + "' class='DOCJS_IMG'><h1 id='DOCJS_TITLE'>" + docjs.title + "</h1><br><div class='search_before'><i class='material-icons'>search</i></div><input autocomplete='off' id='DOCJS_SEARCH' onkeyup='filter_list()' placeholder='Search...'>" + marked(this.responseText) + "<div id='DOCJS_OPTIONS'><p onclick='docjs_show_menu()'>" + docjs.title + "</p><div class='content'>Options<br><br><div class=\"theme-switch-wrapper\" id=\"DOCJS_THEMESWITCH\"> <label class=\"theme-switch\" for=\"checkbox\" style=\"margin:0;\"> <input type=\"checkbox\" id=\"checkbox\" style=\"margin:0;\" /> <div class=\"slider round\"></div> </label><span style=\"color: var(--font-color);margin-left: 10px;\">Dark Mode</span></div><br><label class=\"switch\"> <input type=\"checkbox\" id='DOCJS_DMODE_CHECKBOX' onclick=\"dark_sidenav()\"> <span class=\"slider round\"></span></label><span style='display:inline-block;color: var(--font-color);margin-left: 10px;bottom:-8px;position:relative'>Dark Sidenav</span> <br><br>Made by ❤️ by DocJS</div></div></div><div class='container' id='DOCJS_PAGE'><h2 id='DOCJS_PAGE_TITLE' style='margin-left: 30px;margin-top: 50px;border-bottom: 3px solid #E6ECF1;padding-bottom: 10px;width: 80% !important;overflow:hidden;'></h2><div id='DOCJS_PAGE_CONTENT'></div><div id='DOCJS_FOOTER'></div></div><div id=\"SIDENAV_OVERLAY\" onclick=\"CLOSE_MENU()\" style=\"position:fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.3);z-index:9999999;display:none\"></div>";
+                  "<div id=\"DOCJS_LOADER\" class=\"linear-activity\"> <div class=\"indeterminate\"></div> </div><div id=\"DOCJS_MOBILE_TRIGGER\" onclick=\"SHOW_MENU()\" style=\"position:fixed;top:0;left:0;cursor:pointer;z-index: 9;display:block\"><i class=\"material-icons\">menu</i></div><div id='DOCJS_SIDEBAR' class='sidebar'><img src='" + docjs.logo + "' class='DOCJS_IMG'><h1 id='DOCJS_TITLE'>" + docjs.title + "<div class='search_before'onclick='OPEN_SEARCH()'><i class='material-icons'>search</i></div></h1><br>" + marked(this.responseText) + "<div id='DOCJS_OPTIONS'><p onclick='docjs_show_menu()'>" + docjs.title + "</p><div class='content'>Options<br><br><div class=\"theme-switch-wrapper\" id=\"DOCJS_THEMESWITCH\"> <label class=\"theme-switch\" for=\"checkbox\" style=\"margin:0;\"> <input type=\"checkbox\" id=\"checkbox\" style=\"margin:0;\" /> <div class=\"slider round\"></div> </label><span style=\"color: var(--font-color);margin-left: 10px;\">Dark Mode</span></div><br><label class=\"switch\"> <input type=\"checkbox\" id='DOCJS_DMODE_CHECKBOX' onclick=\"dark_sidenav()\"> <span class=\"slider round\"></span></label><span style='display:inline-block;color: var(--font-color);margin-left: 10px;bottom:-8px;position:relative'>Dark Sidenav</span> <br><br>Made by ❤️ by DocJS</div></div></div><div class='container' id='DOCJS_PAGE'><h2 id='DOCJS_PAGE_TITLE' style='margin-left: 30px;margin-top: 50px;border-bottom: 3px solid #E6ECF1;padding-bottom: 10px;width: 80% !important;overflow:hidden;'></h2><div id='DOCJS_PAGE_CONTENT'></div><div id='DOCJS_FOOTER'></div></div><div id=\"SIDENAV_OVERLAY\" onclick=\"CLOSE_MENU()\" style=\"position:fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.3);z-index:9999999;display:none\"></div><div id='search_popup'></div>";
                   var map = {}; onkeydown = onkeyup = function(e){ e = e || event; map[e.keyCode] = e.type == 'keydown'; if(map["191"]==true){ e.preventDefault(); document.getElementById('DOCJS_SEARCH').focus(); } }
               var divs = document.querySelectorAll('#DOCJS_SIDEBAR li a');
               var ID = 1;
@@ -29,6 +30,7 @@
               for (var i = 0; i < divs.length; i++) {
                 var DIV = ID++;
                   divs[i].id = "DOCJS_LINK_" + DIV;
+                  docjs_searchitems.push(divs[i].id);
                   divs[i].href = "#/" + divs[i].innerHTML.replace(/\s+/g, '-').toLowerCase();
                   // alert(docjs.directory + divs[i].hash)
                   if(docjs.domain + window.location.hash == divs[i].href) { defPage = divs[i].id;}
@@ -179,43 +181,53 @@
       }
   }
 
-  function SHOW_MENU() {
-      document.getElementById('DOCJS_SIDEBAR').style.left = 0;
-      document.getElementById('SIDENAV_OVERLAY').style.display = "block"
-  }
+function SHOW_MENU() {
+    document.getElementById('DOCJS_SIDEBAR').style.left = 0;
+    document.getElementById('SIDENAV_OVERLAY').style.display = "block"
+}
 
-  function CLOSE_MENU() {
-      document.getElementById('DOCJS_SIDEBAR').style.left = '-300px';
-      document.getElementById('SIDENAV_OVERLAY').style.display = "none"
-  }
+function CLOSE_MENU() {
+    document.getElementById('DOCJS_SIDEBAR').style.left = '-300px';
+    document.getElementById('SIDENAV_OVERLAY').style.display = "none"
+}
 
-  function filter_list() {
-      var input, filter, ul, li, a, i, txtValue;
-      input = document.getElementById("DOCJS_SEARCH");
-      filter = input.value.toUpperCase();
-      ul = document.getElementsByTagName("ul")[0];
-      li = ul.getElementsByTagName("li");
-      for (i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName("a")[0];
-          txtValue = a.textContent || a.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              li[i].style.display = "";
-          } else {
-              li[i].style.display = "none";
-          }
-      }
-  }
+function filter_list() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("docjs_search_popup_input");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById
+    ("docjs_search_results_filter_list");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
 
-  function docjs_show_menu() {
-      document.getElementById('DOCJS_OPTIONS').classList.toggle('MENU_ACTIVE');
-  }
+function docjs_show_menu() {
+    document.getElementById('DOCJS_OPTIONS').classList.toggle('MENU_ACTIVE');
+}
 
-  function dark_sidenav() {
-      var checkbox = document.getElementById('DOCJS_DMODE_CHECKBOX')
-      if (checkbox.checked == true) {
-          document.body.setAttribute('data-lightTheme', '')
-      } else {
-          document.body.setAttribute('data-lightTheme', 'true')
-      }
+function dark_sidenav() {
+    var checkbox = document.getElementById('DOCJS_DMODE_CHECKBOX')
+    if (checkbox.checked == true) {
+        document.body.setAttribute('data-lightTheme', '')
+    } else {
+        document.body.setAttribute('data-lightTheme', 'true')
+    }
 
-  }
+}
+function OPEN_SEARCH() {
+  document.getElementById('search_popup').innerHTML = '<div class="DOCJS_SEARCH_OVERLAY" onclick="CLOSE_SEARCH()"></div><div class="DOCJS_SEARCH_POPUP" id="DOCJS_SEARCH_POPUP"></div>';
+  document.getElementById('DOCJS_SEARCH_POPUP').innerHTML = '<input id="docjs_search_popup_input" autocomplete="off" onkeyup="filter_list()" placeholder="Type to start searching..."> <ul class="docjs_search_results" id="docjs_search_results_filter_list"><div id="res"></div></ul>';
+  document.getElementById('docjs_search_popup_input').focus();
+  docjs_searchitems.forEach(element => document.getElementById('res').innerHTML += "<li><a href='#' onclick='document.getElementById(\""+element+"\").click();CLOSE_SEARCH()'>" + document.getElementById(element).innerHTML + "</a></li>");
+}
+function CLOSE_SEARCH() {
+  document.getElementById('search_popup').innerHTML = ''
+}
