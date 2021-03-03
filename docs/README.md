@@ -15,7 +15,7 @@ Welcome to the official Smartlist knowledge base. In here, you'll see guides on 
 If you want to get help quickly, here is a good process to follow:
 
 1.  Check the knowledge base first. Many common questions have been answered there already. Try using the search bar in the top right corner!
-2.  Search our [community forum](https://forum.infinityfree.net/search). Thousands of questions have been asked and answered there already, so maybe you can find an answer there already!
+2.  Search our [community forum](http://community.smartlist.ga/). Thousands of questions have been asked and answered there already, so maybe you can find an answer there already!
 3.  Create a new topic on our community forum and ask your question there. Please be sure to be specific in your message, and include relevant details like account usernames, URLs and exact error messages.
 
 ### How can I contact support? 
