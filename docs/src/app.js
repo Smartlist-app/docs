@@ -1,5 +1,5 @@
 window.onload = function() {
-    var htmlmode, page_title, page_content, NEXT_PAGE, PREV_PAGE, HTML_PAGE_NEXT, HTML_PAGE_PREV, data, FILENAME;
+    var htmlmode, page_title, page_content, NEXT_PAGE, PREV_PAGE, HTML_PAGE_NEXT, HTML_PAGE_PREV, data, FILENAME, defPage;
     document.title = docjs.title;
     if (docjs.HTMLmode == true) {
         htmlmode = 'html';
@@ -26,7 +26,11 @@ window.onload = function() {
                 section.classList.add('red')
             }
             for (var i = 0; i < divs.length; i++) {
-                divs[i].id = "DOCJS_LINK_" + ID++;
+              var DIV = ID++;
+                divs[i].id = "DOCJS_LINK_" + DIV;
+                divs[i].href = "#/" + divs[i].innerHTML.replace(/\s+/g, '-').toLowerCase();
+                // alert(docjs.directory + divs[i].hash)
+                if(docjs.directory + window.location.hash == divs[i].href) { defPage = divs[i].id;}
                 divs[i].onclick = function() {
                     NEXT_PAGE = parseInt(this.id.replace(/\D/g, '')) + 1;
                     PREV_PAGE = parseInt(this.id.replace(/\D/g, '')) - 1;
@@ -66,8 +70,12 @@ window.onload = function() {
 
                 toggleSwitch.addEventListener('change', switchTheme, false);
             }
-            document.querySelector('#DOCJS_SIDEBAR li a').click();
-
+            // alert(defPage);
+            if(document.body.contains(document.querySelector('#DOCJS_SIDEBAR li a#'+ defPage))) {
+            document.querySelector('#DOCJS_SIDEBAR li a#'+ defPage).click();
+            }
+            else {            document.querySelector('#DOCJS_SIDEBAR li a').click();
+}
             function SHOW_MOBILE_SCREEN_QUERY(x) {
                 var SHOW_MOBILE_SCREEN_QUERYx = window.matchMedia("(max-width: 600px)");
                 SHOW_MOBILE_SCREEN_QUERY(SHOW_MOBILE_SCREEN_QUERYx);
