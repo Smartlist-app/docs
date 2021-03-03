@@ -338,7 +338,7 @@ a:hover {
 }
 
 .search_before {
-position: fixed;
+position: absolute;
 top: 15px;
 cursor: pointer;
 left: 230px;
