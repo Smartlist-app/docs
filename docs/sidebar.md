@@ -6,6 +6,7 @@
   * [Adding A Task](#)
   * [Turning on Push Notifications](#)
   * [All about your budget meter](#)
+  * [Searching your home](#)
 * [Common Errors](#)
   * [No data in budget meter to display](#)
   * [Where did the add button go](#)
