@@ -333,7 +333,8 @@ a:hover {
 	text-align: left;
 	color: #aaa;
 	vertical-align: middle;
-	font-size: 25px;
+	font-size: 20px;
+  margin: 30px 0
 }
 
 #DOCJS_SEARCH {
