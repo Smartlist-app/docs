@@ -6,3 +6,6 @@ Here are a few quick links:
 * Home: [https://smartlist.ga](https://smartlist.ga)
 * Dashboard: [https://smartlist.ga/dashboard/beta](https://smartlist.ga/dashboard/beta)
 * Forum: [https://community.smartlist.ga](https://community.smartlist.ga)
+
+### How can I contact support? 
+You can contact us via [email](mailto:hello@homebase.rf.gd), or post a question in the [community](https://community.smartlist.ga/). Please note that we do not provide 24/7 support. 
