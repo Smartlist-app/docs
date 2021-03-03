@@ -227,11 +227,17 @@ function OPEN_SEARCH() {
   if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   CLOSE_MENU();
   }
-  document.getElementById('search_popup').innerHTML = '<div class="DOCJS_SEARCH_OVERLAY" onclick="CLOSE_SEARCH()"></div><div class="DOCJS_SEARCH_POPUP" id="DOCJS_SEARCH_POPUP"></div>';
+  document.getElementById('search_popup').innerHTML = '<div class="DOCJS_SEARCH_OVERLAY" id="DOCJS_SEARCH_OVERLAY" onclick="CLOSE_SEARCH()"></div><div class="DOCJS_SEARCH_POPUP" id="DOCJS_SEARCH_POPUP"></div>';
   document.getElementById('DOCJS_SEARCH_POPUP').innerHTML = '<input id="docjs_search_popup_input" autocomplete="off" onkeyup="filter_list()" placeholder="Type to start searching..."> <ul class="docjs_search_results" id="docjs_search_results_filter_list"><div id="res"></div></ul>';
   document.getElementById('docjs_search_popup_input').focus();
   docjs_searchitems.forEach(element => document.getElementById('res').innerHTML += "<li><a href='#' onclick='document.getElementById(\""+element+"\").click();CLOSE_SEARCH()'>" + document.getElementById(element).innerHTML + "</a></li>");
+  // document.getElementById('DOCJS_SEARCH_POPUP').style.right = "-50%"
+  document.getElementById('DOCJS_SEARCH_POPUP').style.right = "0"
+  document.getElementById('DOCJS_SEARCH_OVERLAY').style.opacity = "1"
+  document.getElementById('DOCJS_SEARCH_POPUP').style.opacity = "1"
 }
 function CLOSE_SEARCH() {
-  document.getElementById('search_popup').innerHTML = ''
+    document.getElementById('DOCJS_SEARCH_POPUP').style.right = "-50%"
+  document.getElementById('DOCJS_SEARCH_POPUP').style.opacity = "0"
+  document.getElementById('DOCJS_SEARCH_OVERLAY').style.opacity = "0";setTimeout(function(){ document.getElementById('search_popup').innerHTML = ''}, 0300);;
 }
