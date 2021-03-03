@@ -1,4 +1,5 @@
 * [Home](#)
+* [What is Smartlist](#)
 * [Getting Started](#)
 * [Guides](#)
   * [Adding An Item](#)
