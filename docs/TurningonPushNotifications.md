@@ -1,5 +1,3 @@
-Turning on Push notifications
--------------------------------------------------------------------
 
 -   Go to settings (CTRL E)
 -   Then, go to the notifications section, and turn it on
