@@ -28,7 +28,6 @@ nav li {display: inline-block}
 
 [data-lightTheme=true] #DOCJS_SIDEBAR .search_before {
 	color: gray !important;
-	background: rgba(200, 200, 200, .3) !important
 }
 
  :root {
@@ -341,14 +340,17 @@ a:hover {
 .search_before {
 	position: relative;
 	bottom: -5px;
+  right: -100px;
 	display: inline-block;
+  cursor: pointer;
 	color: white;
 	padding: 10px;
-	background: #2d3653;
-	margin-left: 15px;
+  background: transparent !important;
 	line-height: 1
 }
-
+.search_before:hover {
+  background: rgba(0,0,0,0.1) !important
+}
 .search_before i {
 	line-height: 20px !important
 }
@@ -837,4 +839,38 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+.DOCJS_SEARCH_OVERLAY {position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999999999999999;background: rgba(0,0,0,0.3);animation: overlay .2s forwards}
+.DOCJS_SEARCH_POPUP {position:fixed;top: 0;right:0;width: 50%;height: 100%;background:white;animation: popup .2s forwards;padding: 20px;z-index:999999999999999999999;  overflow:scroll
+}
+
+@keyframes popup {
+  0% {right: -100%;opacity:0;}
+}
+@keyframes overlay {
+  0% {opacity:0;}
+}
+#docjs_search_popup_input {
+  width: 100%;
+  padding: 20px 10px;
+  font-size: 20px;
+  border: 0;
+  outline: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+#docjs_search_results_filter_list {
+  list-style: none;
+  padding: 0;
+}
+#docjs_search_results_filter_list li {
+  padding:0;
+}
+#docjs_search_results_filter_list a{
+  padding: 15px 15px;
+  display:block;
+}
+#docjs_search_results_filter_list a:hover {
+  text-decoration: none;
+  background: #eee;
 }
