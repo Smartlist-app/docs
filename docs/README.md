@@ -11,6 +11,7 @@ Welcome to the official Smartlist knowledge base. In here, you'll see guides on 
 
 
 ### How can I get help? 
+
 ---
 
 If you want to get help quickly, here is a good process to follow:
