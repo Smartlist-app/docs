@@ -4,6 +4,7 @@
   * [Adding An Item](#)
   * [Adding A Task](#)
   * [Turning on Push Notifications](#)
+  * [All about your budget meter](#)
 * [Developer](#)
   * [Intro](#)
 * [Common Errors](#)
