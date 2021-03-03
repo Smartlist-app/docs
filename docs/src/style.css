@@ -16,7 +16,7 @@ a,
 p {
 	transition: color .2s;
 }
-
+nav li {display: inline-block}
 [data-lightTheme=true] #DOCJS_SIDEBAR a {
 	color: var(--sidebar_font-color) !important
 }
