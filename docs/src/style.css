@@ -306,7 +306,6 @@ a:hover {
 	position: fixed;
 	top: 0;
 	right: 0;
-	backgrund: black;
 	z-index: 9999999;
 }
 
@@ -456,7 +455,7 @@ body {
 	width: 50px;
 	display: inline-block;
 	height: 50px;
-	margin: 0 5px;
+	margin: 0 10px;
 }
 
 #DOCJS_SIDEBAR h1 {
