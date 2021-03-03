@@ -128,10 +128,23 @@ window.onload = function() {
         if (docjs.hideTitle == true) {
             document.getElementById('DOCJS_PAGE_TITLE').innerHTML = '';
         }
-        document.getElementById('DOCJS_FOOTER').innerHTML = '<div style="width:90%;margin:auto"><button class="NAV_BTN left" id="PREV" onclick=\'document.querySelector("#DOCJS_LINK_' + parseInt(PREV_PAGE) + '").click()\'><i class=""></i> Previous<br><b>' + HTML_PAGE_PREV + '</b></button><button class="NAV_BTN right" onclick=\'document.querySelector("#DOCJS_LINK_' + parseInt(NEXT_PAGE) + '").click()\'>Next<br><b>' + HTML_PAGE_NEXT + '</b></button></div>';
+        document.getElementById('DOCJS_FOOTER').innerHTML = '<div style="width:90%;margin:auto"><button class="NAV_BTN left" id="PREV" onclick=\'document.querySelector("#DOCJS_LINK_' + parseInt(PREV_PAGE) + '").click()\'><i class=""></i> Previous<br><b>' + HTML_PAGE_PREV + '</b></button><button id="NEXT" class="NAV_BTN right" onclick=\'document.querySelector("#DOCJS_LINK_' + parseInt(NEXT_PAGE) + '").click()\'>Next<br><b>' + HTML_PAGE_NEXT + '</b></button></div>';
         if (value == 'Home') {
             document.getElementById('PREV').style.display = 'none'
         }
+        document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    e = e || window.event;
+    if (e.keyCode == '37') {
+       document.getElementById('PREV').click();
+    }
+    else if (e.keyCode == '39') {
+       document.getElementById('NEXT').click();
+    }
+
+}
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
