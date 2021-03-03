@@ -851,7 +851,7 @@ input:checked + .slider:before {
 .DOCJS_SEARCH_POPUP {position:fixed;top: 0;right:0;width: 50%;height: 100%;background:white;animation: popup .2s forwards;padding: 20px;z-index:999999999999999999999;  overflow:scroll
 }
 @media only screen and (max-width: 600px) {
-	.DOCJS_SEARCH_POPUP {width: 100%}
+	.DOCJS_SEARCH_POPUP {width: 75%}
 }
 @keyframes popup {
   0% {right: -100vw;opacity:0;}
