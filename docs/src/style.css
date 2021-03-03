@@ -852,7 +852,7 @@ input:checked + .slider:before {
 }
 
 @keyframes popup {
-  0% {right: -100%;opacity:0;}
+  0% {right: -100vw;opacity:0;}
 }
 @keyframes overlay {
   0% {opacity:0;}
