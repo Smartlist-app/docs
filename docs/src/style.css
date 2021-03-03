@@ -874,7 +874,7 @@ input:checked + .slider:before {
   text-decoration: none;
   background: #eee;
 }
-hr.style-six {
+hr {
     border: 0;
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
