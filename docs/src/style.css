@@ -860,7 +860,7 @@ opacity: 0;
 /* animation: popup .2s forwards; */
 }
 @media only screen and (max-width: 600px) {
-	.DOCJS_SEARCH_POPUP {width: 75%}
+	.DOCJS_SEARCH_POPUP {width: 90%}
 }
 @keyframes popup {
   0% {right: -100vw;opacity:0;}
