@@ -1,6 +1,6 @@
 Hello, and thank you for choosing Smartlist for your home inventory app! We believe that users need to access websites fast, and not have to sign a billion credentials. So, let's get started!
 
--   Go to [https://homebase.rf.gd/homebase](https://smartlist.ga/homebase/)
+-   Go to [https://smartlist.ga/dashboard/beta](https://smartlist.ga/dashboard/)
 
     -   Next, click signup if you don't have an account
     -   Then, fill in your name, email, username, and password
@@ -34,7 +34,7 @@ Well, that was the dashboard. Wasn't that easy? Now shouldn't we add some items 
 
 Nice! We advise you to perform these additional (optional) steps for a better experience
 
--   Ask a question in our [forum](http://homebase.rf.gd/forum) if you have any doubts (or even just join it!)
+-   Ask a question in our [forum](http://community.smartlist.ga/) if you have any doubts (or even just join it!)
 -   Install the desktop app
 -   Customize your profile picture and theme
 
