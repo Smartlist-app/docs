@@ -30,7 +30,7 @@ window.onload = function() {
                 divs[i].id = "DOCJS_LINK_" + DIV;
                 divs[i].href = "#/" + divs[i].innerHTML.replace(/\s+/g, '-').toLowerCase();
                 // alert(docjs.directory + divs[i].hash)
-                if(docjs.directory + window.location.hash == divs[i].href) { defPage = divs[i].id;}
+                if(docjs.domain + window.location.hash == divs[i].href) { defPage = divs[i].id;}
                 divs[i].onclick = function() {
                     NEXT_PAGE = parseInt(this.id.replace(/\D/g, '')) + 1;
                     PREV_PAGE = parseInt(this.id.replace(/\D/g, '')) - 1;
