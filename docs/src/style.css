@@ -356,7 +356,7 @@ border-radius: 999999px;}
   background: rgba(0,0,0,0.01) !important
 }
 .search_before:active {
-  background: rgba(0,0,0,0.9) !important
+  background: rgba(0,0,0,0.2) !important
 }
 .search_before i {
 	line-height: 20px !important
