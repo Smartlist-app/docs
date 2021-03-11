@@ -15,8 +15,8 @@
         return true;
       }
       const docjs = {
-        domain: 'https://smartlist-app.github.io/docs/',
-        directory: 'https://raw.githubusercontent.com/Smartlist-app/docs/main/docs/',
+        domain: window.location.href.split("#")[0],
+        directory: window.location.href.split("#")[0],
         lightTheme: true,
         element: 'app',
         title: 'Smartlist Support',
