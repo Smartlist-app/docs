@@ -6,7 +6,9 @@ The very exsistence of Smartlist wouldn't have been without these people/service
 * Materialize CSS
 * [Infinitz Host](https://infinitzhost.com/)
 * cPanel
+* [Cloudflare](https://www.cloudflare.com/)
 * [postale.io](https://postale.io)
+* [Teamly](http://teamly.rf.gd/)
 
 #### Silver
 * @FatGrizzly 
