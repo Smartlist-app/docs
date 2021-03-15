@@ -261,3 +261,4 @@ function CLOSE_SEARCH() {
   document.getElementById('DOCJS_SEARCH_POPUP').style.opacity = "0"
   document.getElementById('DOCJS_SEARCH_OVERLAY').style.opacity = "0";setTimeout(function(){ document.getElementById('search_popup').innerHTML = ''}, 0300);
 }
+ 
