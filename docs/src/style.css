@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 body[data-lightTheme=true]:not([data-theme="dark"]) #DOCJS_SIDEBAR {
 	background: var(--sidebar-color) !important;
 	border-color: var(--bb-color) !important;
@@ -56,6 +55,9 @@ nav li {display: inline-block}
 	--sidebar-color: #202020;
 	--code-color: #1c1c1c;
 	--do-color-hover: #212121;
+}
+[data-skin="material"] {
+  --sidebar-color: white;
 }
 p {
   line-height: 20px !important
@@ -150,7 +152,7 @@ li {
 
 #DOCJS_MOBILE_TRIGGER {
 	background: var(--secondary-color);
-	padding: 10px;
+	/* padding: 10px; */
 	color: var(--font-color)
 }
 
@@ -516,7 +518,7 @@ body {
 	#DOCJS_NAV {
 		left: 0;
 		width: 100%;
-		padding-left: 30px !important
+		padding-left: 50px !important
 	}
 	#DOCJS_PAGE_CONTENT {
 		padding: 5px 10px;
@@ -685,8 +687,9 @@ html {
 	content: "";
 	float: left;
 	width: 5px;
-	height: 50px;
+	height: 49px;
 	position: absolute;
+  border-radius:999px;
 	transition: all .2s;
 	margin-left: -40px;
 }
@@ -887,8 +890,80 @@ opacity: 0;
 #docjs_search_results_filter_list a{
   padding: 15px 15px;
   display:block;
+  color: gray;
 }
 #docjs_search_results_filter_list a:hover {
   text-decoration: none;
   background: #eee;
+}
+#docjs_search_results_filter_list a:active {
+  text-decoration: none;
+  background: #ccc;
+}
+#DOCJS_MOBILE_TRIGGER {
+  position: fixed;
+  top:2px !important;
+  z-index:999999999;
+  left:5px !important; 
+  user-select: none;
+  line-height: 60px;
+text-align: center !important;
+width: 45px;
+height: 45px;
+transition: all .2s;
+background:transparent;
+outline:0;
+overflow: hidden;
+border-radius: 999999px;
+cursor: pointer;}
+#docjs_sback {
+  position: fixed;
+  top:5px;
+  z-index:999999999;
+  /* left:5px;  */
+  user-select: none;
+  margin-left: -13px;
+  line-height: 63px;
+text-align: center !important;
+width: 50px;
+height: 50px;
+transition: all .2s;
+background:transparent;
+outline:0;
+overflow: hidden;
+display: none;
+border-radius: 999999px;
+cursor: pointer;
+}
+#docjs_sback:hover,#DOCJS_MOBILE_TRIGGER:hover {
+  background: rgba(0,0,0,0.1)
+}
+#docjs_sback:active,#DOCJS_MOBILE_TRIGGER:active {
+  background: rgba(0,0,0,0.2)
+}
+#docjs_sback i {
+    text-align: center !important;
+    padding-left: 13px;
+}
+[data-skin="material"] .DOCJS_SEARCH_POPUP {
+  width:100%;
+  padding-top: 60px;
+}
+[data-skin="material"] #docjs_search_popup_input {
+  position: fixed;
+  margin-left: -20px;
+  top:0;
+  width:100%;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  padding: 0 10px;
+  padding-left: 70px;
+  font-size:15px;
+  line-height: 60px;
+}
+[data-skin="material"] #docjs_sback {
+  display:block;
+}
+[data-skin="material"] nav,[data-skin="material"] #DOCJS_SIDEBAR {
+  border: none !important;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
