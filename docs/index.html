@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="./src/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div id="app"></div>
@@ -18,15 +18,23 @@
         domain: window.location.href.split("#")[0],
         directory: window.location.href.split("#")[0],
         lightTheme: true,
+        dynamicTitle: true,
+        hideSearch: false,
+        theme: 'Material',
         element: 'app',
-        title: 'Smartlist Support',
-        logo: 'https://i.ibb.co/FDqN0Vh/Screenshot-2021-02-02-at-7-55-08-AM-2.png',
+        title: 'DocJS',
+        logo: 'https://img.icons8.com/color/2x/documents.png',
         bottom_nav: true,
         navbar: true,
+        repo: 'https://github.com/manuthecoder/docjs',
+        // copyToClipboard: true
+        // bottom_menu: false
       }
-      cssVars({});
+      cssVars({
+        // Options...
+      });
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/ManuTheCoder/docjs/docs/src/markdown.js"></script>
+    <script src="./src/markdown.js"></script>
     <script src="./src/app.js"></script>
   </body>
 </html>
