@@ -946,8 +946,13 @@ cursor: pointer;
     padding-left: 13px;
 }
 [data-skin="material"] .DOCJS_SEARCH_POPUP {
-  width:100%;
+  width:50%;
   padding-top: 60px;
+}
+@media only screen and (max-width: 600px) {
+  [data-skin="material"] .DOCJS_SEARCH_POPUP {
+  width: 100%
+  }
 }
 [data-skin="material"] #docjs_search_popup_input {
   position: fixed;
