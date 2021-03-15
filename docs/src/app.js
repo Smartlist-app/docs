@@ -11,6 +11,9 @@ function changeFavicon(src) {
  document.head.appendChild(link);
 }
 changeFavicon(docjs.logo);
+if(docjs.theme == 'Material') {
+  document.documentElement.setAttribute('data-skin', 'material');
+}
 window.onload = function() {
   var htmlmode, page_title, page_content, NEXT_PAGE, PREV_PAGE, HTML_PAGE_NEXT, HTML_PAGE_PREV, data, FILENAME, defPage;
   document.title = docjs.title;
@@ -26,7 +29,12 @@ window.onload = function() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById(docjs.element).innerHTML =
-        "<div id=\"DOCJS_LOADER\" class=\"linear-activity\"> <div class=\"indeterminate\"></div> </div><div id=\"DOCJS_MOBILE_TRIGGER\" onclick=\"SHOW_MENU()\" style=\"position:fixed;top:0;left:0;cursor:pointer;z-index: 9;display:block\"><i class=\"material-icons\">menu</i></div><div id='DOCJS_SIDEBAR' class='sidebar'><img src='" + docjs.logo + "' class='DOCJS_IMG'><h1 id='DOCJS_TITLE'>" + docjs.title + "<div class='search_before' tabindex='0' onclick='OPEN_SEARCH()'><i class='material-icons'>search</i></div></h1><br>" + marked(this.responseText) + "<div id='DOCJS_OPTIONS'><p onclick='docjs_show_menu()'>" + docjs.title + "</p><div class='content'>Options<br><br><div class=\"theme-switch-wrapper\" id=\"DOCJS_THEMESWITCH\"> <label class=\"theme-switch\" for=\"checkbox\" style=\"margin:0;\"> <input type=\"checkbox\" id=\"checkbox\" style=\"margin:0;\" /> <div class=\"slider round\"></div> </label><span style=\"color: var(--font-color);margin-left: 10px;\">Dark Mode</span></div><br><label class=\"switch\"> <input type=\"checkbox\" id='DOCJS_DMODE_CHECKBOX' onclick=\"dark_sidenav()\"> <span class=\"slider round\"></span></label><span style='display:inline-block;color: var(--font-color);margin-left: 10px;bottom:-8px;position:relative'>Dark Sidenav</span> <br><br>Made by â¤ï¸ by DocJS</div></div></div><div class='container' id='DOCJS_PAGE'><h2 id='DOCJS_PAGE_TITLE' style='margin-left: 30px;margin-top: 50px;border-bottom: 3px solid #E6ECF1;padding-bottom: 10px;width: 80% !important;overflow:hidden;'></h2><div id='DOCJS_PAGE_CONTENT'></div><div id='DOCJS_FOOTER'></div></div><div id=\"SIDENAV_OVERLAY\" onclick=\"CLOSE_MENU()\" style=\"position:fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.3);z-index:9999999;display:none\"></div><div id='search_popup'></div>";
+        "<div id=\"DOCJS_LOADER\" class=\"linear-activity\"> <div class=\"indeterminate\"></div> </div><div id=\"DOCJS_MOBILE_TRIGGER\" onclick=\"SHOW_MENU()\" style=\"position:fixed;top:0;left:0;cursor:pointer;z-index: 9;display:block\"><i class=\"material-icons\">menu</i></div><div id='DOCJS_SIDEBAR' class='sidebar'><img src='" + docjs.logo + "' class='DOCJS_IMG'><h1 id='DOCJS_TITLE'>" + docjs.title + "<div class='search_before' id='sr' tabindex='0' onclick='OPEN_SEARCH()'><i class='material-icons'>search</i></div></h1><br>" + marked(this.responseText) + "<div id='DOCJS_OPTIONS'><p onclick='docjs_show_menu()'>" + docjs.title + "</p><div class='content'>Options<br><br><div class=\"theme-switch-wrapper\" id=\"DOCJS_THEMESWITCH\"> <label class=\"theme-switch\" for=\"checkbox\" style=\"margin:0;\"> <input type=\"checkbox\" id=\"checkbox\" style=\"margin:0;\" /> <div class=\"slider round\"></div> </label><span style=\"color: var(--font-color);margin-left: 10px;\">Dark Mode</span></div><br><label class=\"switch\"> <input type=\"checkbox\" id='DOCJS_DMODE_CHECKBOX' onclick=\"dark_sidenav()\"> <span class=\"slider round\"></span></label><span style='display:inline-block;color: var(--font-color);margin-left: 10px;bottom:-8px;position:relative'>Dark Sidenav</span> <br><br>Made by â¤ï¸ by DocJS</div></div></div><div class='container' id='DOCJS_PAGE'><h2 id='DOCJS_PAGE_TITLE' style='margin-left: 30px;margin-top: 50px;border-bottom: 3px solid #E6ECF1;padding-bottom: 10px;width: 80% !important;overflow:hidden;'></h2><div id='DOCJS_PAGE_CONTENT'></div><div id='DOCJS_FOOTER'></div></div><div id=\"SIDENAV_OVERLAY\" onclick=\"CLOSE_MENU()\" style=\"position:fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.3);z-index:9999999;display:none\"></div><div id='search_popup'></div>";
+        if(docjs.hideSearch == true) {
+          document.getElementById('sr').style.display = 'none';
+        }
+        if(docjs.bottom_nav == false) {document.getElementById('DOCJS_OPTIONS').style.display = 'none'}
+        if(docjs.bottom_menu == false) {document.getElementById('DOCJS_FOOTER').style.display = 'none'}
       var map = {}; onkeydown = onkeyup = function(e){ e = e || event; map[e.keyCode] = e.type == 'keydown'; if(map["191"]==true){ e.preventDefault(); OPEN_SEARCH()} }
       var divs = document.querySelectorAll('#DOCJS_SIDEBAR li a');
       var ID = 1;
@@ -47,6 +55,7 @@ window.onload = function() {
         // alert(docjs.directory + divs[i].hash)
         if(docjs.domain + window.location.hash == divs[i].href) { defPage = divs[i].id;}
         divs[i].onclick = function() {
+          if(docjs.dynamicTitle == true) {document.title = this.innerHTML + ' | ' + docjs.title}
           NEXT_PAGE = parseInt(this.id.replace(/\D/g, '')) + 1;
           PREV_PAGE = parseInt(this.id.replace(/\D/g, '')) - 1;
           if (this.id !== 'DOCJS_LINK_1' && document.getElementById('DOCJS_LINK_' + PREV_PAGE)) {
@@ -240,7 +249,7 @@ function OPEN_SEARCH() {
     CLOSE_MENU();
   }
   document.getElementById('search_popup').innerHTML = '<div class="DOCJS_SEARCH_OVERLAY" id="DOCJS_SEARCH_OVERLAY" onclick="CLOSE_SEARCH()"></div><div class="DOCJS_SEARCH_POPUP" id="DOCJS_SEARCH_POPUP"></div>';
-  document.getElementById('DOCJS_SEARCH_POPUP').innerHTML = '<input id="docjs_search_popup_input" autocomplete="off" onkeyup="filter_list()" placeholder="Type to start searching..."> <ul class="docjs_search_results" id="docjs_search_results_filter_list"><div id="res"></div></ul>';
+  document.getElementById('DOCJS_SEARCH_POPUP').innerHTML = '<div id="docjs_sback" onclick="CLOSE_SEARCH();"><i class="material-icons">arrow_backward</i></div><input id="docjs_search_popup_input" autocomplete="off" onkeyup="filter_list()" placeholder="Type here to start searching..."> <ul class="docjs_search_results" id="docjs_search_results_filter_list"><div id="res"></div></ul>';
   document.getElementById('docjs_search_popup_input').focus();
   docjs_searchitems.forEach(element => document.getElementById('res').innerHTML += "<li><a href='#' onclick='document.getElementById(\""+element+"\").click();CLOSE_SEARCH()'>" + document.getElementById(element).innerHTML + "</a></li>");
   document.getElementById('DOCJS_SEARCH_POPUP').style.right = "0"
