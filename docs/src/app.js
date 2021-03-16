@@ -29,7 +29,10 @@ window.onload = function() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById(docjs.element).innerHTML =
-        "<div id=\"DOCJS_LOADER\" class=\"linear-activity\"> <div class=\"indeterminate\"></div> </div><div id=\"DOCJS_MOBILE_TRIGGER\" onclick=\"SHOW_MENU()\" style=\"position:fixed;top:0;left:0;cursor:pointer;z-index: 9;display:block\"><i class=\"material-icons\">menu</i></div><div id='DOCJS_SIDEBAR' class='sidebar'><img src='" + docjs.logo + "' class='DOCJS_IMG'><h1 id='DOCJS_TITLE'>" + docjs.title + "<div class='search_before' id='sr' tabindex='0' onclick='OPEN_SEARCH()'><i class='material-icons'>search</i></div></h1><br>" + marked(this.responseText) + "<div id='DOCJS_OPTIONS'><p onclick='docjs_show_menu()'>" + docjs.title + "</p><div class='content'>Options<br><br><div class=\"theme-switch-wrapper\" id=\"DOCJS_THEMESWITCH\"> <label class=\"theme-switch\" for=\"checkbox\" style=\"margin:0;\"> <input type=\"checkbox\" id=\"checkbox\" style=\"margin:0;\" /> <div class=\"slider round\"></div> </label><span style=\"color: var(--font-color);margin-left: 10px;\">Dark Mode</span></div><br><label class=\"switch\"> <input type=\"checkbox\" id='DOCJS_DMODE_CHECKBOX' onclick=\"dark_sidenav()\"> <span class=\"slider round\"></span></label><span style='display:inline-block;color: var(--font-color);margin-left: 10px;bottom:-8px;position:relative'>Dark Sidenav</span> <br><br>Made by â¤ï¸ by DocJS</div></div></div><div class='container' id='DOCJS_PAGE'><h2 id='DOCJS_PAGE_TITLE' style='margin-left: 30px;margin-top: 50px;border-bottom: 3px solid #E6ECF1;padding-bottom: 10px;width: 80% !important;overflow:hidden;'></h2><div id='DOCJS_PAGE_CONTENT'></div><div id='DOCJS_FOOTER'></div></div><div id=\"SIDENAV_OVERLAY\" onclick=\"CLOSE_MENU()\" style=\"position:fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.3);z-index:9999999;display:none\"></div><div id='search_popup'></div>";
+        "<div id=\"DOCJS_LOADER\" class=\"linear-activity\"> <div class=\"indeterminate\"></div> </div><div id=\"DOCJS_MOBILE_TRIGGER\" onclick=\"SHOW_MENU()\" style=\"position:fixed;top:0;left:0;cursor:pointer;z-index: 9;display:block\"><i class=\"material-icons\">menu</i></div><div id='DOCJS_SIDEBAR' class='sidebar'><img src='" + docjs.logo + "' class='DOCJS_IMG'><h1 id='DOCJS_TITLE'>" + docjs.title + "<div class='search_before' id='sr' tabindex='0' onclick='OPEN_SEARCH()'><i class='material-icons'>search</i></div></h1><br>" + marked(this.responseText) + "<div id='DOCJS_OPTIONS_OVERLAY' style='display:none' onclick='docjs_show_menu()'></div><div id='DOCJS_OPTIONS'><p onclick='docjs_show_menu()'><a class='back' style='display:none'><i class='material-icons'>arrow_back</i></a><span>" + docjs.title + "</span></p><div class='content'>Options<br><br><div class=\"theme-switch-wrapper\" id=\"DOCJS_THEMESWITCH\"> <label class=\"theme-switch\" for=\"checkbox\" style=\"margin:0;\"> <input type=\"checkbox\" id=\"checkbox\" style=\"margin:0;\" /> <div class=\"slider round\"></div> </label><span style=\"color: var(--font-color);margin-left: 10px;\">Dark Mode</span></div><br><label class=\"switch\"> <input type=\"checkbox\" id='DOCJS_DMODE_CHECKBOX' onclick=\"dark_sidenav()\"> <span class=\"slider round\"></span></label><span style='display:inline-block;color: var(--font-color);margin-left: 10px;bottom:-8px;position:relative'>Dark Sidenav</span><br><br><label class=\"switch\"> <input type=\"checkbox\" id=\"material_theme\" onchange=\"toggle_material_theme();\"> <span class=\"slider round\"></span></label><span style='display:inline-block;color: var(--font-color);margin-left: 10px;bottom:-8px;position:relative'>Material Theme</span> <br><br>Check out DocJS on <a href='https://github.com/manuthecoder/docjs' style='display:inline;padding:0;margin-left: 20px;'>GitHub</a></div></div></div><div class='container' id='DOCJS_PAGE'><h2 id='DOCJS_PAGE_TITLE' style='margin-left: 30px;margin-top: 50px;border-bottom: 3px solid #E6ECF1;padding-bottom: 10px;width: 80% !important;overflow:hidden;'></h2><div id='DOCJS_PAGE_CONTENT'></div><div id='DOCJS_FOOTER'></div></div><div id=\"SIDENAV_OVERLAY\" onclick=\"CLOSE_MENU()\" style=\"position:fixed;top:0;left:0;width:100%;height:100%;background: rgba(0,0,0,0.3);z-index:9999999;display:none\"></div><div id='search_popup'></div>";
+        if(docjs.theme == 'Material') {document.getElementById('material_theme').checked = true;}
+        else {document.getElementById('material_theme').checked = false;}
+        
         if(docjs.hideSearch == true) {
           document.getElementById('sr').style.display = 'none';
         }
@@ -198,8 +201,9 @@ window.onload = function() {
     xhttp.open("GET", docjs.directory + "navbar." + htmlmode, true);
     xhttp.send();
   }
+var gh_color = docjs.gh_color;
   if (typeof docjs.repo !== 'undefined') {
-    document.getElementById(docjs.element).insertAdjacentHTML('afterend', '<a href="' + docjs.repo + '" target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: fixed;z-index:99999; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>')
+    document.getElementById(docjs.element).insertAdjacentHTML('afterend', '<a href="' + docjs.repo + '" target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:'+gh_color+'; color:#fff; position: fixed;z-index:99999; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>')
   }
 }
 
@@ -233,6 +237,7 @@ function filter_list() {
 
 function docjs_show_menu() {
   document.getElementById('DOCJS_OPTIONS').classList.toggle('MENU_ACTIVE');
+  document.getElementById('DOCJS_OPTIONS_OVERLAY').classList.toggle('active');
 }
 
 function dark_sidenav() {
@@ -249,7 +254,7 @@ function OPEN_SEARCH() {
     CLOSE_MENU();
   }
   document.getElementById('search_popup').innerHTML = '<div class="DOCJS_SEARCH_OVERLAY" id="DOCJS_SEARCH_OVERLAY" onclick="CLOSE_SEARCH()"></div><div class="DOCJS_SEARCH_POPUP" id="DOCJS_SEARCH_POPUP"></div>';
-  document.getElementById('DOCJS_SEARCH_POPUP').innerHTML = '<div id="docjs_sback" onclick="CLOSE_SEARCH();"><i class="material-icons">arrow_backward</i></div><input id="docjs_search_popup_input" autocomplete="off" onkeyup="filter_list()" placeholder="Type here to start searching..."> <ul class="docjs_search_results" id="docjs_search_results_filter_list"><div id="res"></div></ul>';
+  document.getElementById('DOCJS_SEARCH_POPUP').innerHTML = '<div id="docjs_sback" onclick="CLOSE_SEARCH();"><i class="material-icons">arrow_back</i></div><input id="docjs_search_popup_input" autocomplete="off" onkeyup="filter_list()" placeholder="Type here to start searching..."> <ul class="docjs_search_results" id="docjs_search_results_filter_list"><div id="res"></div></ul>';
   document.getElementById('docjs_search_popup_input').focus();
   docjs_searchitems.forEach(element => document.getElementById('res').innerHTML += "<li><a href='#' onclick='document.getElementById(\""+element+"\").click();CLOSE_SEARCH()'>" + document.getElementById(element).innerHTML + "</a></li>");
   document.getElementById('DOCJS_SEARCH_POPUP').style.right = "0"
@@ -261,4 +266,36 @@ function CLOSE_SEARCH() {
   document.getElementById('DOCJS_SEARCH_POPUP').style.opacity = "0"
   document.getElementById('DOCJS_SEARCH_OVERLAY').style.opacity = "0";setTimeout(function(){ document.getElementById('search_popup').innerHTML = ''}, 0300);
 }
- 
+if (!Element.prototype.toggleAttribute) {
+  Element.prototype.toggleAttribute = function(name, force) {
+    if(force !== void 0) force = !!force
+
+    if (this.hasAttribute(name)) {
+      if (force) return true;
+
+      this.removeAttribute(name);
+      return false;
+    }
+    if (force === false) return false;
+
+    this.setAttribute(name, "");
+    return true;
+  };
+}
+function toggle_material_theme() {
+  var result = document.documentElement.hasAttribute('data-skin');
+  if(result == true) {
+      var mtheme = document.documentElement.getAttribute('data-skin');
+      if(mtheme == 'material') {
+          document.documentElement.removeAttribute
+          ('data-skin');
+      }
+  }
+  else {
+      var mtheme = document.documentElement.getAttribute('data-skin');
+      if(mtheme !== 'material') {
+          document.documentElement.setAttribute
+          ('data-skin', 'material');
+      }
+  }
+}
