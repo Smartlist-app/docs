@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body[data-lightTheme=true]:not([data-theme="dark"]) #DOCJS_SIDEBAR {
   background: var(--sidebar-color) !important;
   border-color: var(--bb-color) !important;
 }
-*:not(code){font-family: 'Roboto', sans-serif;}
+*:not(code){font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}
 h1,
 h2,
 h3,
@@ -112,7 +111,7 @@ blockquote {
   box-sizing: border-box
 }
 * {font-smooth: always;}
-#DOCJS_PAGE_TITLE {letter-spacing: 1px;font-smooth: always;}
+}
 #DOCJS_PAGE_CONTENT {
   padding: 5px 50px;
   width: 90%;
@@ -300,6 +299,7 @@ a:hover {
   display: block;
   padding: 15px;
   width: 300px;
+  font-weight: 400;
   ;
   /* transition: all .1s; */
   color: #fff;
@@ -370,7 +370,8 @@ a:hover {
   color: #aaa;
   vertical-align: middle;
   font-size: 20px;
-  margin: 30px 0
+  margin: 30px 0;
+  font-weight: 400 !important
 }
 
 #DOCJS_SEARCH {
